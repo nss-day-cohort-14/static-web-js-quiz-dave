@@ -9,14 +9,14 @@ character.addEventListener('keypress', keypressHandler);
 
 function buttonHandler() {
 	if (validate()) {
-		makeTree();
+		makeTree(height.value, character.value);
 	}
 }
 
 function keypressHandler(event) {
 	if (event.keyCode === 13) {
 		if (validate()) {
-			makeTree();
+			makeTree(height.value, character.value);
 		}
 	}
 }
@@ -31,13 +31,9 @@ function validate() {
 	return valid;
 }
 
-function makeTree() {
-	if (validate()) {
-		var treeHeight = height.value;
-		var treeCharacter = character.value;
-		for (var x = 0; x < treeHeight; x++) {
-			makeBranch(x + 1, treeHeight - (x + 1), treeCharacter);
-		}
+function makeTree(height, character) {
+	for (var x = 0; x < height; x++) {
+		makeBranch(x + 1, height - (x + 1), character);
 	}
 }
 
