@@ -3,31 +3,41 @@ var character = document.getElementById('character');
 var button = document.getElementById('button');
 var branch = [];
 
-button.addEventListener('click', validate);
+button.addEventListener('click', buttonHandler);
 height.addEventListener('keypress', keypressHandler);
 character.addEventListener('keypress', keypressHandler);
 
+function buttonHandler() {
+	if (validate()) {
+		makeTree();
+	}
+}
+
 function keypressHandler(event) {
 	if (event.keyCode === 13) {
-		validate();
+		if (validate()) {
+			makeTree();
+		}
 	}
 }
 
 function validate() {
+	var valid = false;
 	if (!height.value || !character.value) {
 		alert('no value, enter both a height and character and then hit enter or push button');
 	} else {
-		var tree = {
-			height: height.value,
-			character: character.value
-		};
-		makeTree(tree);
+		valid = true;
 	}
+	return valid;
 }
 
-function makeTree(tree) {
-	for (var x = 0; x < tree.height; x++) {
-		makeBranch(x + 1, tree.height - (x + 1), tree.character);
+function makeTree() {
+	if (validate()) {
+		var treeHeight = height.value;
+		var treeCharacter = character.value;
+		for (var x = 0; x < treeHeight; x++) {
+			makeBranch(x + 1, treeHeight - (x + 1), treeCharacter);
+		}
 	}
 }
 
