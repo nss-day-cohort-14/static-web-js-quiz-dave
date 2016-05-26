@@ -1,0 +1,32 @@
+header, article, footer {
+	border: 1px solid black;
+}
+
+header {
+	background-color: darkgrey;
+	text-align: center;
+}
+
+article {
+	background-color: lightgrey;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+input {
+	margin: 2rem;
+	font-size: 2rem;
+	width: 4rem;
+}
+
+button {
+	width: 5rem;
+	margin: 2rem auto;
+}
+
+footer {
+	background-color: grey;
+	text-align: center;
+}
